@@ -74,7 +74,9 @@
      <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
+     <Compile Include="Assets\HealthBar.cs" />
      <Compile Include="Assets\Prefabs\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
+     <Compile Include="Assets\Scripts\HealthBarBehaviour.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <None Include="Assets\CodeMonkey\README.txt" />
