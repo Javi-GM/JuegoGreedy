@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     CharacterController characterController;
 
+    [SerializeField] private HealthBarBehaviour healthbar;
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
@@ -20,6 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        healthbar.SetSize(1f);
     }
 
     // Update is called once per frame
