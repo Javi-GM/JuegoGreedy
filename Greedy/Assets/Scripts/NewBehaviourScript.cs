@@ -46,4 +46,12 @@ public class NewBehaviourScript : MonoBehaviour
         deltatime += Time.deltaTime;
         deltatime = Mathf.Min(freq, deltatime);
     }
+
+    void OnTriggerEnter(Collider other)
+  	{
+  		if (other.gameObject.CompareTag ("Carrot"))
+  		{
+  			other.gameObject.SetActive (false);
+  		}
+  	}
 }
