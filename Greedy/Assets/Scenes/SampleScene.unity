@@ -9850,6 +9850,7 @@ GameObject:
   - component: {fileID: 1546498390}
   - component: {fileID: 1546498389}
   - component: {fileID: 1546498388}
+  - component: {fileID: 1546498392}
   m_Layer: 0
   m_Name: Carrot (2)
   m_TagString: Carrot
@@ -9864,13 +9865,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546498386}
-  m_LocalRotation: {x: 0.08814943, y: 0.06823908, z: 0.6083261, w: 0.7858197}
-  m_LocalPosition: {x: 0.61, y: 1.07, z: -2.82}
-  m_LocalScale: {x: 1.5575606, y: 1.9188205, z: 1.99008}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.07, y: 1.18, z: -3.09}
+  m_LocalScale: {x: 1.5, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1188600650}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 3.1820002, y: 12.405001, z: 75.83501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &1546498388
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9946,6 +9947,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1546498392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546498386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c358759f2eace8b4680e5b8cc7b3c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551643213
 GameObject:
   m_ObjectHideFlags: 0
@@ -11003,6 +11016,7 @@ GameObject:
   - component: {fileID: 1852924222}
   - component: {fileID: 1852924221}
   - component: {fileID: 1852924220}
+  - component: {fileID: 1852924224}
   m_Layer: 0
   m_Name: Carrot (1)
   m_TagString: Carrot
@@ -11017,13 +11031,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852924218}
-  m_LocalRotation: {x: 0.08814943, y: 0.06823908, z: 0.6083261, w: 0.7858197}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -6.8, y: 0.99, z: -2.14}
-  m_LocalScale: {x: 1.5575606, y: 1.9188205, z: 1.99008}
+  m_LocalScale: {x: 1.5, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1188600650}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 3.1820002, y: 12.405001, z: 75.83501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &1852924220
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11099,6 +11113,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1852924224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852924218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c358759f2eace8b4680e5b8cc7b3c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1887179009
 GameObject:
   m_ObjectHideFlags: 0
@@ -11476,6 +11502,7 @@ GameObject:
   - component: {fileID: 1978160790}
   - component: {fileID: 1978160789}
   - component: {fileID: 1978160788}
+  - component: {fileID: 1978160793}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Carrot
@@ -11565,13 +11592,25 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978160787}
-  m_LocalRotation: {x: 0.08814943, y: 0.06823908, z: 0.6083261, w: 0.7858197}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -2.84, y: 0.87, z: -1.09}
-  m_LocalScale: {x: 1.5575619, y: 1.9188229, z: 1.9900779}
+  m_LocalScale: {x: 1.5, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1188600650}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 3.1820002, y: 12.405001, z: 75.83501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1978160793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978160787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c358759f2eace8b4680e5b8cc7b3c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981158456
 GameObject:
   m_ObjectHideFlags: 0

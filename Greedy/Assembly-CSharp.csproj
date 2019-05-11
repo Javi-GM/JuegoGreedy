@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Prefabs\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\Rotator.cs" />
      <None Include="Assets\Prefabs\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
      <None Include="Assets\Prefabs\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
  <Reference Include="Unity.Timeline.Editor">
