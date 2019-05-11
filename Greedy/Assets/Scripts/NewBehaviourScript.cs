@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class NewBehaviourScript : MonoBehaviour
     public float gravity = 20.0f;
     public float freq = 10f;
     public GameObject Model;
+    public Text textCalorias;
+    private int calorias;
 
     float deltatime = 0;
 
@@ -20,6 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        textCalorias.text = "Calorías: " + 0.ToString();
     }
 
     // Update is called once per frame
@@ -45,13 +49,56 @@ public class NewBehaviourScript : MonoBehaviour
         Debug.Log(Model.transform.localRotation);
         deltatime += Time.deltaTime;
         deltatime = Mathf.Min(freq, deltatime);
+        UpdateCaloriesUI();
     }
 
     void OnTriggerEnter(Collider other)
   	{
-  		if (other.gameObject.CompareTag ("Carrot"))
+  		if (other.gameObject.CompareTag ("SmallCarrot"))
   		{
   			other.gameObject.SetActive (false);
-  		}
-  	}
+            calorias += 10;
+
+          }
+
+        if (other.gameObject.CompareTag("MediumCarrot"))
+        {
+            other.gameObject.SetActive(false);
+            calorias += 20;
+
+        }
+
+        if (other.gameObject.CompareTag("BigCarrot"))
+        {
+            other.gameObject.SetActive(false);
+            calorias += 30;
+
+        }
+
+        if (other.gameObject.CompareTag("SmallBanana"))
+        {
+            other.gameObject.SetActive(false);
+            calorias += 5;
+
+        }
+
+        if (other.gameObject.CompareTag("MediumBanana"))
+        {
+            other.gameObject.SetActive(false);
+            calorias += 10;
+
+        }
+
+        if (other.gameObject.CompareTag("BigBanana"))
+        {
+            other.gameObject.SetActive(false);
+            calorias += 15;
+
+        }
+    }
+
+    void UpdateCaloriesUI()
+    {
+        textCalorias.text = "Calorías: " + calorias.ToString();
+    }
 }

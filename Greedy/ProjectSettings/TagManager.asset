@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Carrot
+  - BigBanana
+  - MediumBanana
+  - SmallBanana
+  - BigCarrot
+  - MediumCarrot
+  - SmallCarrot
   layers:
   - Default
   - TransparentFX
