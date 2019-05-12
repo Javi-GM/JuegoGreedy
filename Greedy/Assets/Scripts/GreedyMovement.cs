@@ -13,6 +13,11 @@ public class GreedyMovement : MonoBehaviour
     public float deltatime = 0;
     public Text textCalorias;
     private int calorias;
+    public Text numberOfLifesRestingText;
+    private int numberOfLifes;
+    private float currentHealth;
+    public Slider HealthSlider;
+    private bool isNewGame;
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -21,12 +26,19 @@ public class GreedyMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         textCalorias.text = "Calorías: " + 0.ToString();
+        setInitialNumberOfLifes(5);
+        setCurrentHealth();
+        NewGame();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateCaloriesUI();
+        HealthSlider.value -= 0.1f;
+
+
 
         moveDirection = new Vector3();
         moveDirection.x = Input.GetAxis("Horizontal")==0 ? 0 : Mathf.Sign(Input.GetAxis("Horizontal"));
@@ -48,8 +60,26 @@ public class GreedyMovement : MonoBehaviour
         //Debug.Log(Model.transform.localRotation);
         deltatime += Time.deltaTime;
         deltatime = Mathf.Min(freq, deltatime);
+
+        if (currentHealth == 0 && IsNewGame()) {
+            SubstractLife();
+            UpdateNumberOfLifesUI();
+            EndGame();
+        }
+      
     }
 
+    public bool IsNewGame() {
+        return isNewGame;
+    }
+
+    void NewGame() {
+        isNewGame = true;
+    }
+
+    void EndGame() {
+        isNewGame = false;
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("SmallCarrot"))
@@ -98,5 +128,26 @@ public class GreedyMovement : MonoBehaviour
     void UpdateCaloriesUI()
     {
         textCalorias.text = "Calorías: " + calorias.ToString();
+    }
+
+    public void UpdateNumberOfLifesUI() {
+        numberOfLifesRestingText.text = "x " + numberOfLifes.ToString();
+    }
+
+    public void SubstractLife() {
+        numberOfLifes -= 1;
+    }
+
+    public void AddLife() {
+        numberOfLifes += 1;
+    }
+
+    public void setInitialNumberOfLifes(int lifes) {
+        numberOfLifes = lifes;
+        UpdateNumberOfLifesUI();
+    }
+
+    public void setCurrentHealth() {
+        currentHealth = HealthSlider.value;
     }
 }
