@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GreedyMovement : MonoBehaviour
 {
     CharacterController characterController;
 
     public float speed = 6.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
     public float freq = 10f;
     public GameObject Model;
+    public float deltatime = 0;
     public Text textCalorias;
     private int calorias;
-
-    float deltatime = 0;
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -29,6 +26,8 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateCaloriesUI();
+
         moveDirection = new Vector3();
         moveDirection.x = Input.GetAxis("Horizontal")==0 ? 0 : Mathf.Sign(Input.GetAxis("Horizontal"));
         moveDirection.z = Input.GetAxis("Vertical") == 0 ? 0 : Mathf.Sign(Input.GetAxis("Vertical"));
@@ -43,23 +42,22 @@ public class NewBehaviourScript : MonoBehaviour
             // Move the controller
             characterController.Move(moveDirection);
             deltatime -=freq;
-            Debug.Log(moveDirection);
+            //Debug.Log(moveDirection);
         }
 
-        Debug.Log(Model.transform.localRotation);
+        //Debug.Log(Model.transform.localRotation);
         deltatime += Time.deltaTime;
         deltatime = Mathf.Min(freq, deltatime);
-        UpdateCaloriesUI();
     }
 
     void OnTriggerEnter(Collider other)
-  	{
-  		if (other.gameObject.CompareTag ("SmallCarrot"))
-  		{
-  			other.gameObject.SetActive (false);
+    {
+        if (other.gameObject.CompareTag("SmallCarrot"))
+        {
+            other.gameObject.SetActive(false);
             calorias += 10;
 
-          }
+        }
 
         if (other.gameObject.CompareTag("MediumCarrot"))
         {
