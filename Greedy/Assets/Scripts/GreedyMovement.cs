@@ -18,7 +18,7 @@ public class GreedyMovement : MonoBehaviour
     private float currentHealth;
     public Slider HealthSlider;
     private bool isNewGame;
-
+    private int caloriasCurar = 0;
     private Vector3 moveDirection = Vector3.zero;
 
     // Start is called before the first frame update
@@ -26,18 +26,17 @@ public class GreedyMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         textCalorias.text = "Calorías: " + 0.ToString();
-        setInitialNumberOfLifes(5);
+        setInitialNumberOfLifes(3);
         setCurrentHealth();
         NewGame();
-
+        HealthSlider.value = 50f;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateCaloriesUI();
-        HealthSlider.value -= 0.1f;
-
+        curarCalorias();
 
 
         moveDirection = new Vector3();
@@ -86,42 +85,42 @@ public class GreedyMovement : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             calorias += 10;
-
+            caloriasCurar += 10;
         }
 
         if (other.gameObject.CompareTag("MediumCarrot"))
         {
             other.gameObject.SetActive(false);
             calorias += 20;
-
+            caloriasCurar += 20;
         }
 
         if (other.gameObject.CompareTag("BigCarrot"))
         {
             other.gameObject.SetActive(false);
             calorias += 30;
-
+            caloriasCurar += 30;
         }
 
         if (other.gameObject.CompareTag("SmallBanana"))
         {
             other.gameObject.SetActive(false);
             calorias += 5;
-
+            caloriasCurar += 5;
         }
 
         if (other.gameObject.CompareTag("MediumBanana"))
         {
             other.gameObject.SetActive(false);
             calorias += 10;
-
+            caloriasCurar += 10;
         }
 
         if (other.gameObject.CompareTag("BigBanana"))
         {
             other.gameObject.SetActive(false);
             calorias += 15;
-
+            caloriasCurar += 15;
         }
     }
 
@@ -149,5 +148,14 @@ public class GreedyMovement : MonoBehaviour
 
     public void setCurrentHealth() {
         currentHealth = HealthSlider.value;
+    }
+
+     public void curarCalorias()
+    {
+        if (caloriasCurar >= 100)
+        {
+            HealthSlider.value += 10f;
+            caloriasCurar -= 100;
+        }
     }
 }
