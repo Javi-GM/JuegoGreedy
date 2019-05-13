@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43787146, g: 0.48580104, b: 0.5660793, a: 1}
+  m_IndirectSpecularColor: {r: 0.43787095, g: 0.48580033, b: 0.56607807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13206,6 +13206,7 @@ MonoBehaviour:
   deltatime: 0
   textCalorias: {fileID: 1508586043}
   numberOfLifesRestingText: {fileID: 192841819}
+  HealthSlider: {fileID: 1197893539}
 --- !u!1 &1809352083
 GameObject:
   m_ObjectHideFlags: 0
