@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GreedyMovement : MonoBehaviour
 {
@@ -17,39 +18,44 @@ public class GreedyMovement : MonoBehaviour
     private int numberOfLifes;
     private float currentHealth;
     public Slider HealthSlider;
-    private bool isNewGame;
+    private bool isNewGame = true;
     private int caloriasCurar = 0;
     private Vector3 moveDirection = Vector3.zero;
+
+    public float inmunity = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         textCalorias.text = "Calorías: " + 0.ToString();
-        setInitialNumberOfLifes(3);
+        setInitialNumberOfLifes(9);
         setCurrentHealth();
         NewGame();
         HealthSlider.value = 50f;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         UpdateCaloriesUI();
+        setCurrentHealth();
+        UpdateNumberOfLifesUI();
         curarCalorias();
 
+        //if (Model.transform.position.y > 0.6) { Model.transform.position = new Vector3(Model.transform.position.x, 0.6f, Model.transform.position.z); }
 
         moveDirection = new Vector3();
-        moveDirection.x = Input.GetAxis("Horizontal")==0 ? 0 : Mathf.Sign(Input.GetAxis("Horizontal"));
-        moveDirection.z = Input.GetAxis("Vertical") == 0 ? 0 : Mathf.Sign(Input.GetAxis("Vertical"));
+        moveDirection = Input.GetAxis("Horizontal")==0 ? moveDirection : new Vector3(Mathf.Sign(Input.GetAxis("Horizontal")),0,0);
+        moveDirection = Input.GetAxis("Vertical") == 0 ? moveDirection : new Vector3(0,0,Mathf.Sign(Input.GetAxis("Vertical")));
         moveDirection *= speed;
 
         if (deltatime >= freq && (Input.GetAxis("Horizontal")!=0 || Input.GetAxis("Vertical") != 0))
         {
-            if (moveDirection.z < 0){ Model.transform.localRotation=new Quaternion(0,1,0,0); }
-            if (moveDirection.z > 0) { Model.transform.localRotation = new Quaternion(0, 0, 0, 0); }
-            if (moveDirection.x > 0) { Model.transform.localRotation = new Quaternion(0, 0.7f, 0, 0.7f); }
-            if (moveDirection.x < 0) { Model.transform.localRotation = new Quaternion(0, -0.7f, 0, 0.7f); }
+            //if (moveDirection.z < 0){ Model.transform.localRotation=new Quaternion(0,1,0,0); }
+            //if (moveDirection.z > 0) { Model.transform.localRotation = new Quaternion(0, 0, 0, 0); }
+            //if (moveDirection.x > 0) { Model.transform.localRotation = new Quaternion(0, 0.7f, 0, 0.7f); }
+            //if (moveDirection.x < 0) { Model.transform.localRotation = new Quaternion(0, -0.7f, 0, 0.7f); }
             // Move the controller
             characterController.Move(moveDirection);
             deltatime -=freq;
@@ -59,13 +65,19 @@ public class GreedyMovement : MonoBehaviour
         //Debug.Log(Model.transform.localRotation);
         deltatime += Time.deltaTime;
         deltatime = Mathf.Min(freq, deltatime);
+        inmunity = Mathf.Max(0, inmunity - Time.deltaTime);
 
-        if (currentHealth == 0 && IsNewGame()) {
+        if (currentHealth == 0 && IsNewGame() && inmunity <= 0) {
             SubstractLife();
-            UpdateNumberOfLifesUI();
-            EndGame();
+            HealthSlider.value = 100;
+            currentHealth = 100;
+            inmunity = 2;
         }
-      
+        if (numberOfLifes <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 
     public bool IsNewGame() {
@@ -133,8 +145,24 @@ public class GreedyMovement : MonoBehaviour
         numberOfLifesRestingText.text = "x " + numberOfLifes.ToString();
     }
 
+    public void GhostHit()
+    {
+        if (inmunity <= 0)
+        {
+            HealthSlider.value = 0;
+            inmunity = 2;
+        }
+    }
+
     public void SubstractLife() {
-        numberOfLifes -= 1;
+        if (inmunity <= 0)
+        {
+            numberOfLifes -= 1;
+            Debug.Log(numberOfLifes+" "+inmunity);
+            HealthSlider.value = 100;
+            currentHealth = 100;
+            inmunity = 2;
+        }
     }
 
     public void AddLife() {
