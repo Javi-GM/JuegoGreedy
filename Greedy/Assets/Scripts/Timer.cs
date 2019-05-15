@@ -7,8 +7,8 @@ public class Timer : MonoBehaviour
 {
 
     public Text timerText;
-    public float secondsCount;
-    public int minuteCount;
+    private float secondsCount = 0;
+    private int minuteCount = 1;
 
     void Start()
     {
