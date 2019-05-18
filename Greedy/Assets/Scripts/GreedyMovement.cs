@@ -75,7 +75,7 @@ public class GreedyMovement : MonoBehaviour
         }
         if (numberOfLifes <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Game Over");
         }
 
     }
