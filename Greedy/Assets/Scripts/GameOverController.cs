@@ -7,7 +7,7 @@ public class GameOverController : MonoBehaviour
 {
     public void NewGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Nivel1");
     }
 
     public void EndGame()

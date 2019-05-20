@@ -15,6 +15,7 @@ public class GreedyMovement : MonoBehaviour
     public Text textCalorias;
     private int calorias;
     public Text numberOfLifesRestingText;
+    public int puntuacionMinima;
     private int numberOfLifes;
     private float currentHealth;
     public Slider HealthSlider;
@@ -76,6 +77,10 @@ public class GreedyMovement : MonoBehaviour
         if (numberOfLifes <= 0)
         {
             SceneManager.LoadScene("Game Over");
+        }
+        if(calorias >= puntuacionMinima)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //CAMBIO DE NIVEL
         }
 
     }
