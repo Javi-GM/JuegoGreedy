@@ -18,7 +18,7 @@ public class damageGreedy : MonoBehaviour
         
         if(other.name == "Rabbit_Red")
         {
-            gm.GhostHit();
+            gm.Fail();
             Debug.Log("Daño");
             //Debug.Log(other);
         }

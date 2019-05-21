@@ -5,14 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
+    public GreedyGameManager GGM;
+
     public void NewGame()
     {
-        SceneManager.LoadScene("Nivel1");
+        GGM.restartPlayerData();
+        GGM.savePlayerData();
+        SceneManager.LoadScene("Nivel"+GGM.getNivel());
+    }
+
+    public void Continue()
+    {
+        if (GGM.getVidas() <= 0) { GGM.setVidas(3); GGM.savePlayerData(); }
+        SceneManager.LoadScene("Nivel" + GGM.getNivel());
     }
 
     public void EndGame()
     {
         Debug.Log("Cerrar");
+        GGM.savePlayerData();
         Application.Quit();
     }
 }

@@ -203,7 +203,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1015372059}
-        m_MethodName: NewGame
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -622,6 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1910f5773aae8b42bc9bfe28d108f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GGM: {fileID: 1359094403}
 --- !u!1 &1049864238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1003,7 @@ GameObject:
   - component: {fileID: 1359094402}
   - component: {fileID: 1359094401}
   - component: {fileID: 1359094400}
+  - component: {fileID: 1359094403}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1074,6 +1076,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1359094403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359094399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85db8e59fafaec6458b180fa56636c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1866919164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1099,7 @@ GameObject:
   - component: {fileID: 1866919165}
   - component: {fileID: 1866919167}
   - component: {fileID: 1866919166}
+  - component: {fileID: 1866919168}
   m_Layer: 5
   m_Name: PuntuacionText
   m_TagString: Untagged
@@ -1153,6 +1168,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866919164}
   m_CullTransparentMesh: 0
+--- !u!114 &1866919168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866919164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ebf8e084b1229499c457bf2d051177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuntText: {fileID: 1866919166}
+  GGM: {fileID: 1359094403}
 --- !u!1 &2067412229
 GameObject:
   m_ObjectHideFlags: 0

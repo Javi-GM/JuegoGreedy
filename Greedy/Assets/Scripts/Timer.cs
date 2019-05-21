@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+
+    public GreedyMovement Player;
 
     public Text timerText;
     private float secondsCount = 0;
@@ -29,8 +32,11 @@ public class Timer : MonoBehaviour
         if (secondsCount <= 0)
         {
             minuteCount--;
+            if (minuteCount < 0) { Player.Fail(); }
             secondsCount = 60;
         }
 
     }
+
+    public int getTime() { return (minuteCount * 60) + (int)secondsCount; }
 }

@@ -84,10 +84,12 @@
     <Compile Include="Assets\Prefabs\CodeMonkey\Utils\World_Sprite.cs" />
     <Compile Include="Assets\Scripts\damageGreedy.cs" />
     <Compile Include="Assets\Scripts\GameOverController.cs" />
+    <Compile Include="Assets\Scripts\GreedyGameManager.cs" />
     <Compile Include="Assets\Scripts\GreedyMovement.cs" />
     <Compile Include="Assets\Scripts\HealthDown.cs" />
     <Compile Include="Assets\Scripts\IAEnemiga.cs" />
     <Compile Include="Assets\Scripts\LifeManager.cs" />
+    <Compile Include="Assets\Scripts\MostrarPuntuacion.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PeriodicHealthDown.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />

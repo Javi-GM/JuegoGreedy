@@ -8,6 +8,9 @@ public class GreedyMovement : MonoBehaviour
 {
     CharacterController characterController;
 
+    public GreedyGameManager GGM;
+    public Timer timer;
+
     public float speed = 6.0f;
     public float freq = 10f;
     public GameObject Model;
@@ -23,14 +26,14 @@ public class GreedyMovement : MonoBehaviour
     private int caloriasCurar = 0;
     private Vector3 moveDirection = Vector3.zero;
 
-    public float inmunity = 0;
+    //public float inmunity = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         textCalorias.text = "Calorías: " + 0.ToString();
-        setInitialNumberOfLifes(9);
+        setInitialNumberOfLifes(GGM.getVidas());
         setCurrentHealth();
         NewGame();
         HealthSlider.value = 50f;
@@ -66,13 +69,12 @@ public class GreedyMovement : MonoBehaviour
         //Debug.Log(Model.transform.localRotation);
         deltatime += Time.deltaTime;
         deltatime = Mathf.Min(freq, deltatime);
-        inmunity = Mathf.Max(0, inmunity - Time.deltaTime);
+        //inmunity = Mathf.Max(0, inmunity - Time.deltaTime);
 
-        if (currentHealth == 0 && IsNewGame() && inmunity <= 0) {
-            SubstractLife();
+        if (currentHealth == 0 && IsNewGame()) {
+            Fail();
             HealthSlider.value = 100;
             currentHealth = 100;
-            inmunity = 2;
         }
         if (numberOfLifes <= 0)
         {
@@ -80,6 +82,10 @@ public class GreedyMovement : MonoBehaviour
         }
         if(calorias >= puntuacionMinima)
         {
+            GGM.setNivel(GGM.getNivel()+1);
+            GGM.setPuntuacion(GGM.getPuntuacion() + calorias + timer.getTime());
+            GGM.setVidas(numberOfLifes);
+            GGM.savePlayerData();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //CAMBIO DE NIVEL
         }
 
@@ -150,16 +156,16 @@ public class GreedyMovement : MonoBehaviour
         numberOfLifesRestingText.text = "x " + numberOfLifes.ToString();
     }
 
-    public void GhostHit()
+    /*public void GhostHit()
     {
         if (inmunity <= 0)
         {
             HealthSlider.value = 0;
             inmunity = 2;
         }
-    }
+    }*/
 
-    public void SubstractLife() {
+    /*public void SubstractLife() {
         if (inmunity <= 0)
         {
             numberOfLifes -= 1;
@@ -168,7 +174,7 @@ public class GreedyMovement : MonoBehaviour
             currentHealth = 100;
             inmunity = 2;
         }
-    }
+    }*/
 
     public void AddLife() {
         numberOfLifes += 1;
@@ -190,5 +196,12 @@ public class GreedyMovement : MonoBehaviour
             HealthSlider.value += 10f;
             caloriasCurar -= 100;
         }
+    }
+
+    public void Fail()
+    {
+        GGM.setVidas(GGM.getVidas() - 1);
+        GGM.savePlayerData();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
