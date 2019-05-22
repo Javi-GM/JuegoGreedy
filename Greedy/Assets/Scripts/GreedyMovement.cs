@@ -10,6 +10,7 @@ public class GreedyMovement : MonoBehaviour
 
     public GreedyGameManager GGM;
     public Timer timer;
+    public PauseMenu pause;
 
     public float speed = 6.0f;
     public float freq = 10f;
@@ -82,11 +83,11 @@ public class GreedyMovement : MonoBehaviour
         }
         if(calorias >= puntuacionMinima)
         {
-            GGM.setNivel(GGM.getNivel()+1);
+            GGM.setNivel(GGM.getNivel() + 1);
             GGM.setPuntuacion(GGM.getPuntuacion() + calorias + timer.getTime());
             GGM.setVidas(numberOfLifes);
             GGM.savePlayerData();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //CAMBIO DE NIVEL
+            pause.Victoria();
         }
 
     }

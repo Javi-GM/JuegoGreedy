@@ -16,7 +16,9 @@ public class GameOverController : MonoBehaviour
 
     public void Continue()
     {
-        if (GGM.getVidas() <= 0) { GGM.setVidas(3); GGM.savePlayerData(); }
+        if (GGM.getVidas() <= 0) { GGM.setVidas(3); }
+        GGM.setPuntuacion(GGM.getPuntuacion()-200);
+        GGM.savePlayerData();
         SceneManager.LoadScene("Nivel" + GGM.getNivel());
     }
 

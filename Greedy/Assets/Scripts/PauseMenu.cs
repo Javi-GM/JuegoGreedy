@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject victoriaUI;
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -37,9 +38,22 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
+    public void Victoria()
+    {
+        victoriaUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     public void LoadMainMenu()
     {
-        /*activar aqui el menu principal*/
+        Resume();
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void NextLevel()
+    {
+        Resume();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //CAMBIO DE NIVEL
     }
 
     public void LoadOptions()
