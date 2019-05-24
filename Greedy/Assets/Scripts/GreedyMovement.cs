@@ -37,7 +37,7 @@ public class GreedyMovement : MonoBehaviour
         setInitialNumberOfLifes(GGM.getVidas());
         setCurrentHealth();
         NewGame();
-        HealthSlider.value = 50f;
+        HealthSlider.value = 100f;
     }
 
     // Update is called once per frame
@@ -81,7 +81,7 @@ public class GreedyMovement : MonoBehaviour
         {
             SceneManager.LoadScene("Game Over");
         }
-        if(calorias >= puntuacionMinima)
+        if(calorias >= puntuacionMinima && GGM.getNivel() != 3)
         {
             GGM.setNivel(GGM.getNivel() + 1);
             GGM.setPuntuacion(GGM.getPuntuacion() + calorias + timer.getTime());
@@ -89,7 +89,10 @@ public class GreedyMovement : MonoBehaviour
             GGM.savePlayerData();
             pause.Victoria();
         }
-
+        if (calorias >= puntuacionMinima && GGM.getNivel() == 3)
+        {
+            SceneManager.LoadScene("Victory");
+        }
     }
 
     public bool IsNewGame() {
