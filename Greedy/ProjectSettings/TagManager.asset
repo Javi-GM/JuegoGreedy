@@ -12,6 +12,7 @@ TagManager:
   - MediumCarrot
   - SmallCarrot
   - Granada
+  - BarrilVeneno
   layers:
   - Default
   - TransparentFX

@@ -89,7 +89,7 @@ public class GreedyMovement : MonoBehaviour
             GGM.savePlayerData();
             pause.Victoria();
         }
-        if (calorias >= puntuacionMinima && SceneManager.GetActiveScene().buildIndex == 3)
+        if (calorias >= puntuacionMinima && GGM.getNivel() == 3)
         {
             SceneManager.LoadScene("Victory");
         }
@@ -154,6 +154,12 @@ public class GreedyMovement : MonoBehaviour
             other.gameObject.SetActive(false);
             Fail();
         }
+        if (other.gameObject.CompareTag("BarrilVeneno"))
+        {
+            other.gameObject.SetActive(false);
+            calorias -= 20;
+            caloriasCurar -= 20;
+        }
     }
 
     void UpdateCaloriesUI()
@@ -185,8 +191,8 @@ public class GreedyMovement : MonoBehaviour
         }
     }*/
 
-    public void AddLife(int n) {
-        numberOfLifes += n;
+    public void AddLife() {
+        numberOfLifes += 1;
     }
 
     public void setInitialNumberOfLifes(int lifes) {
