@@ -192,8 +192,8 @@ public class GreedyMovement : MonoBehaviour
         }
     }*/
 
-    public void AddLife() {
-        numberOfLifes += 1;
+    public void AddLife(int lifes) {
+        numberOfLifes += lifes;
     }
 
     public void setInitialNumberOfLifes(int lifes) {
@@ -203,6 +203,11 @@ public class GreedyMovement : MonoBehaviour
 
     public void setCurrentHealth() {
         currentHealth = HealthSlider.value;
+    }
+
+    public void modifyHealth(int health)
+    {
+        HealthSlider.value += health;
     }
 
      public void curarCalorias()
