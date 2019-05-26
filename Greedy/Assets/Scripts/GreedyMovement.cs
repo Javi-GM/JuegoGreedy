@@ -89,7 +89,7 @@ public class GreedyMovement : MonoBehaviour
             GGM.savePlayerData();
             pause.Victoria();
         }
-        if (calorias >= puntuacionMinima && GGM.getNivel() == 3)
+        if (calorias >= puntuacionMinima && SceneManager.GetActiveScene().buildIndex == 3)
         {
             SceneManager.LoadScene("Victory");
         }
@@ -185,8 +185,8 @@ public class GreedyMovement : MonoBehaviour
         }
     }*/
 
-    public void AddLife() {
-        numberOfLifes += 1;
+    public void AddLife(int n) {
+        numberOfLifes += n;
     }
 
     public void setInitialNumberOfLifes(int lifes) {
