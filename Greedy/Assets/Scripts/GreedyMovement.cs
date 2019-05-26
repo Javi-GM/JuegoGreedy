@@ -159,6 +159,7 @@ public class GreedyMovement : MonoBehaviour
             other.gameObject.SetActive(false);
             calorias -= 20;
             caloriasCurar -= 20;
+            if (calorias < 0) Fail();
         }
     }
 
