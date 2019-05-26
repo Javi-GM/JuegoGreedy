@@ -11,6 +11,7 @@ TagManager:
   - BigCarrot
   - MediumCarrot
   - SmallCarrot
+  - Granada
   layers:
   - Default
   - TransparentFX

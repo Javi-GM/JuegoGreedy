@@ -149,6 +149,11 @@ public class GreedyMovement : MonoBehaviour
             calorias += 15;
             caloriasCurar += 15;
         }
+        if (other.gameObject.CompareTag("Granada"))
+        {
+            other.gameObject.SetActive(false);
+            Fail();
+        }
     }
 
     void UpdateCaloriesUI()
