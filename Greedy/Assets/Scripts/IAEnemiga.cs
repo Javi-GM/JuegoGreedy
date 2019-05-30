@@ -10,7 +10,14 @@ public class IAEnemiga : MonoBehaviour
     public float freq = 10f;
     public GameObject Model;
     public float deltatime = 0;
-    
+
+    //hecho por mi
+    public float MoveSpeed;
+    public float MaxDist;
+    public float MinDist;
+    public GameObject player = GameObject.FindWithTag("Player");
+
+
     private Vector3 moveDirection = Vector3.zero;
 
     // Start is called before the first frame update
@@ -24,6 +31,20 @@ public class IAEnemiga : MonoBehaviour
     void FixedUpdate()
     {
         
+        Vector3 enemyPos = transform.position;
+        Vector3 playerPos = player.transform.position;
+        float distancia = Vector3.Distance(enemyPos, playerPos);
+
+        if (distancia >= MinDist && distancia <= MaxDist)
+        {
+            Vector3 targetPos = new Vector3(player.transform.position.x,
+            this.transform.position.y,
+            player.transform.position.z);
+            transform.LookAt(targetPos);
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
+        }
+
         moveDirection = new Vector3(UnityEngine.Random.Range(0, 3)-1, 0, 0);
         moveDirection = moveDirection.x != 0 ? moveDirection : new Vector3(0, 0,UnityEngine.Random.Range(0, 3)-1);
         moveDirection *= speed;

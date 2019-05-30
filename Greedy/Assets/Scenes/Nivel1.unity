@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43787146, g: 0.48580104, b: 0.5660793, a: 1}
+  m_IndirectSpecularColor: {r: 0.43787083, g: 0.48580056, b: 0.5660785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4502,6 +4502,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1042551287}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &484200054
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484200053}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!65 &484200059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9764,6 +9786,26 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2042396396, guid: 3b4179ec36c024c4389e59b86343f693, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1797241410}
+    - target: {fileID: 1335095015, guid: 3b4179ec36c024c4389e59b86343f693, type: 3}
+      propertyPath: MoveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335095015, guid: 3b4179ec36c024c4389e59b86343f693, type: 3}
+      propertyPath: MaxDist
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335095015, guid: 3b4179ec36c024c4389e59b86343f693, type: 3}
+      propertyPath: MinDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335095015, guid: 3b4179ec36c024c4389e59b86343f693, type: 3}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 484200053}
+    - target: {fileID: 1335095015, guid: 3b4179ec36c024c4389e59b86343f693, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1797241410}
