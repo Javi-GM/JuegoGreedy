@@ -72,7 +72,7 @@ public class GreedyMovement : MonoBehaviour
         deltatime = Mathf.Min(freq, deltatime);
         //inmunity = Mathf.Max(0, inmunity - Time.deltaTime);
 
-        if (currentHealth == 0 && IsNewGame()) {
+        if (currentHealth <= 0 && IsNewGame()) {
             Fail();
             HealthSlider.value = 100;
             currentHealth = 100;
@@ -157,8 +157,9 @@ public class GreedyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("BarrilVeneno"))
         {
             other.gameObject.SetActive(false);
-            calorias -= 20;
-            caloriasCurar -= 20;
+            HealthSlider.value -= 20;
+            //calorias -= 20;
+            //caloriasCurar -= 20;
             if (calorias < 0) Fail();
         }
     }
@@ -194,6 +195,7 @@ public class GreedyMovement : MonoBehaviour
 
     public void AddLife(int lifes) {
         numberOfLifes += lifes;
+        GGM.setVidas(numberOfLifes);
     }
 
     public void setInitialNumberOfLifes(int lifes) {
@@ -221,6 +223,7 @@ public class GreedyMovement : MonoBehaviour
 
     public void Fail()
     {
+        Debug.Log("BOOM");
         GGM.setVidas(GGM.getVidas() - 1);
         GGM.savePlayerData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

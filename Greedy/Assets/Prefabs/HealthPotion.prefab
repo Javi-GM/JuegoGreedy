@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb2e80f4d722934f9b04bc6402cb661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthIncrease: 0
+  HealthIncrease: 25
 --- !u!1001 &4712987620088969423
 PrefabInstance:
   m_ObjectHideFlags: 0
